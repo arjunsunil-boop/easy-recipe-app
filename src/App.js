@@ -5,6 +5,7 @@ import ViewRecipes from './components/ViewRecipes';
 import ViewRecipeSingle from './components/ViewRecipeSingle';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
+import Searchrecipe from './components/Searchrecipe';
 
 function App() {
   return (
@@ -12,11 +13,12 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-          <Route path="/" element={<ViewRecipes />} />
+          <Route path="/" element={<UserLogin/>} />
           <Route path="/login" element={<UserLogin/>} />
           <Route path="/view" element={<ViewRecipes />} />
           <Route path="/recipe/:id" element={<ViewRecipeSingle/>} />
           <Route path="/add" element={<AddRecipes />} />
+          <Route path="/search" element={<Searchrecipe />} />
 
         </Routes>
 
