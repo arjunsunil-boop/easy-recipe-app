@@ -1,82 +1,76 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const ViewRecipeSingle = () => {
+    const { id } = useParams();
+    const [recipe, setRecipe] = useState(null);
 
-
-    const [recipes, setRecipes] = useState(
-        []
-    )
-
-    const fetchRecipes = () => {
-        axios.get("http://127.0.0.1:5000/recipes").then(
-
+    const fetchRecipe = () => {
+        axios.get(`http://127.0.0.1:5000/recipe/${id}`).then(
             (response) => {
-                setRecipes(
-                    response.data
-                )
+                setRecipe(response.data);
             }
         ).catch(
             (error) => {
-                console.log(error)
+                console.log(error);
             }
-        )
+        );
+    };
 
+    useEffect(() => {
+        fetchRecipe();
+    }, [id]);
+
+    if (!recipe) {
+        return <div>Loading...</div>;
     }
 
-    useEffect(
-        () => { fetchRecipes() }, []
-    )
-
-
-
     return (
-
-
         <div>
-
-
+            <Navbar/>
+            <br /><br /><br />
             <div className="container">
-
                 <div className="row g-3">
-
                     <div className="col-12">
+                        <div className="row g-4">
+                            <div className="col-6">
+                                <img src={recipe.recipe_img} alt={recipe.name} class="recipe-image" />
+                            </div>
+                            <div className="col-6">
+                                <div className="col-12">
+                                    <div className="recipe-details">
 
-                        <div className="row">
-                            <div className="col-12">
-
-                                <div className="recipe-details">
-                                    <img src="path/to/recipe-image.jpg" alt="Recipe" className="recipe-image" />
-                                    <h2 className="recipe-title">Recipe Title</h2>
-                                    <p className="cooking-time">Cooking Time: 30 minutes</p>
-                                    <div className="ingredients">
-                                        <h3>Ingredients</h3>
-                                        <ul>
-                                            <li>Ingredient 1</li>
-                                            <li>Ingredient 2</li>
-                                            <li>Ingredient 3</li>
-                                        </ul>
-                                    </div>
-                                    <div className="instructions">
-                                        <h3>Instructions</h3>
-                                        <p>Step 1: Do this.</p>
-                                        <p>Step 2: Do that.</p>
-                                        <p>Step 3: Finish up.</p>
+                                        <h2 className="recipe-title">{recipe.name}</h2>
+                                        <p className="cooking-time">Cooking Time: {recipe.cooking_time} minutes</p>
+                                        <p className="description">{recipe.description}</p>
+                                        <div className="ingredients">
+                                            <h3>Ingredients</h3>
+                                            <ul>
+                                                {recipe.ingredients.map((ingredient, index) => (
+                                                    <li key={index}>
+                                                        {ingredient.name}: {ingredient.quantity} {ingredient.unit}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className="instructions">
+                                            <h3>Instructions</h3>
+                                            {recipe.instructions.map((instruction, index) => (
+                                                <p key={index}>Step {instruction.step_number}: {instruction.description}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ViewRecipeSingle
+export default ViewRecipeSingle;
