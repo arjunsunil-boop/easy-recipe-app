@@ -6,6 +6,7 @@ import ViewRecipeSingle from './components/ViewRecipeSingle';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Searchrecipe from './components/Searchrecipe';
+import UserCreate from './components/UserCreate';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
           <Route path="/" element={<UserLogin/>} />
           <Route path="/login" element={<UserLogin/>} />
+          <Route path="/create" element={<UserCreate/>} />
           <Route path="/view" element={<ViewRecipes />} />
           <Route path="/recipe/:id" element={<ViewRecipeSingle/>} />
           <Route path="/add" element={<AddRecipes />} />

@@ -25,9 +25,6 @@ const UserLogin = () => {
                     console.log(response.data)
                     history('/view')
 
-                    alert("asdasdad");
-                    
-
                 } else {
                     alert('Login failed. Please try again.');
                 }
@@ -48,7 +45,7 @@ const UserLogin = () => {
         <div className="login-container">
             <div className="card" id='login-card'>
                 <div className="card-body" id='card-body-login'>
-                    <h5 className="card-title">USER LOGIN</h5>
+                    <h5 className="card-title">USER LOGIN </h5>
                     <h6 className="card-subtitle mb-2 text-body-secondary">Please enter your credentials</h6>
                     <form>
                         <div className="mb-3">
@@ -60,6 +57,9 @@ const UserLogin = () => {
                             <input type="password" className="form-control" id="password" onChange={addlogindetails} name='password' value={login.password} />
                         </div>
                         <button type="submit" className="btn btn-primary" onClick={check}>Login</button>
+                        <div>
+                            <a href="/create">Create User</a>
+                        </div>
                     </form>
 
                 </div>

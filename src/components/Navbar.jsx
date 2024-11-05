@@ -4,28 +4,28 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-secondary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Recipe App</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="/view">Recipe App</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">Home</Link>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/view" id="home-link">Home</Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/add">Add Recipies</Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/add" id="add-link">Add Recipes</Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/search">Search</Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search" id="search-link">Search</Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/view">View Recipies</Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/view" id="view-link">View Recipes</Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/login">Login</Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login" id="login-link">Login</Link>
               </li>
             </ul>
           </div>

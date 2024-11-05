@@ -53,7 +53,10 @@ const AddRecipes = () => {
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-              <div className="row g-">
+              <div className="row g-4">
+                
+                  <h4>Add Your Favorite Recipes!</h4>
+                
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                   <label htmlFor="name" className="form-label">Name</label>
                   <input type="text" className="form-control" name="name" value={recipe.name} onChange={handleChange} />
