@@ -1,50 +1,57 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './UserLogin.css';
 
 const UserCreate = () => {
-
     const [login, createlogin] = useState({
         username: "",
         password: ""
     });
 
     const addlogindetails = (e) => {
-
         createlogin({ ...login, [e.target.name]: e.target.value });
-    }
+    };
+
     const history = useNavigate();
 
-    const create = (e) => {
-        e.preventDefault()
+    const validateInputs = () => {
+        const { username, password } = login;
+        if (!username.trim() || !password.trim()) {
+            alert('Username and password cannot be empty or contain only spaces.');
+            return false;
+        }
+        return true;
+    };
 
+    const create = (e) => {
+        e.preventDefault();
+
+        if (!validateInputs()) {
+            return;
+        }
 
         axios.post("http://127.0.0.1:5000/create_user", login).then(
             (response) => {
-                console.log(response.status)
+                console.log(response.status);
                 if (response.status === 200) {
-                    console.log(response.data)
+                    console.log(response.data);
                     alert("User created successfully");
-                    history('/view')
+                    history('/view');
                 } else {
-                    alert('Login failed. Please try again.');
+                    alert('User creation failed. Please try again.');
                 }
             }
         ).catch(
             (error) => {
-                console.log(error)
+                console.log(error);
+                alert('An error occurred while creating the user.');
             }
-        )
-
-
-
-    }
-
-
+        );
+    };
 
     return (
         <div>
-
             <div className="login-container">
                 <div className="card" id='login-card'>
                     <div className="card-body" id='card-body-login'>
@@ -61,15 +68,11 @@ const UserCreate = () => {
                             </div>
                             <button type="submit" className="btn btn-primary" onClick={create}>Create</button>
                         </form>
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-    )
-}
+    );
+};
 
-export default UserCreate
+export default UserCreate;

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './ViewRecipes.css';
 
 const ViewRecipes = () => {
 
@@ -60,7 +61,7 @@ const ViewRecipes = () => {
                   (i, index) => {
                     return (
 
-                      <div className="col col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                      <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
 
                         <div class="card" id='card-hover' >
                           <img src={i.recipe_img} class="card-img-top" alt="..." />
