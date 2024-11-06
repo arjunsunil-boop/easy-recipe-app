@@ -1,70 +1,133 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# EaZyRecipes
 
-## Available Scripts
+EaZyRecipes is a web application that allows users to view, add, search, and review recipes. This project was developed as part of a Database Management System (DBMS) course. The application uses a backend server to manage the recipes and reviews, and a frontend client to display and interact with the data.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- View a list of recipes
+- View detailed information about a single recipe
+- Add new recipes
+- Search for recipes
+- Add reviews to recipes
+- User authentication (login and registration)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Frontend: React, React Router, Axios, Font Awesome
+- Backend: Python, Flask
+- Database: MySQL (using XAMPP and phpMyAdmin)
+- Styling: CSS, Bootstrap
 
-### `npm test`
+## Installation
+```
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/arjunsunil-boop/easy-recipe-app.git
+   cd easy-recipe-app
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the dependencies for the frontend:
+   ```sh
+   npm install
+   ```
 
-### `npm run build`
+3. Start the frontend development server:
+   ```sh
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Navigate to the `Server` directory:
+   ```sh
+   cd Server
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Install the dependencies for the backend:
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. Set up the MySQL database using XAMPP:
+   - Open XAMPP and start the Apache and MySQL modules.
+   - Open phpMyAdmin by navigating to `http://localhost/phpmyadmin` in your browser.
+   - Create a new database named `easyrecp`.
+   - Import the `esyrecp.sql` file into the `easyrecp` database.
 
-### `npm run eject`
+7. Start the backend server:
+   ```sh
+   python api.py
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Use the navigation bar to explore the different features of the application.
+3. View recipes, add new recipes, search for recipes, and add reviews.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Root Directory
 
-## Learn More
+- `Server/`
+  - `api.py`: Entry point for the backend server.
+  - `esyrecp.sql`: SQL file to set up the database schema and initial data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Frontend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `src/`
+  - `components/`: Contains the React components for the application.
+    - `Navbar.jsx`: Navigation bar component.
+    - `ViewRecipes.jsx`: Component to view a list of recipes.
+    - `ViewRecipeSingle.jsx`: Component to view detailed information about a single recipe.
+    - `AddRecipes.jsx`: Component to add new recipes.
+    - `UserLogin.jsx`: Component for user login.
+    - `UserCreate.jsx`: Component for user registration.
+  - `App.js`: Main application component.
+  - `index.js`: Entry point for the React application.
+  - `App.css`: Global styles for the application.
+  - `Navbar.css`: Styles for the navigation bar.
+  - `ViewRecipes.css`: Styles for the ViewRecipes component.
+  - `ViewRecipeSingle.css`: Styles for the ViewRecipeSingle component.
+  - `UserLogin.css`: Styles for the UserLogin component.
 
-### Code Splitting
+## Database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The project uses MySQL as the database to store recipes and reviews. The database schema includes tables for recipes and reviews, with appropriate relationships between them.
 
-### Analyzing the Bundle Size
+### Recipes Table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `recipe_id`: Unique identifier for the recipe.
+- `name`: Name of the recipe.
+- `description`: Description of the recipe.
+- `ingredients`: List of ingredients required for the recipe.
+- `instructions`: Step-by-step instructions for preparing the recipe.
+- `cooking_time`: Cooking time in minutes.
+- `servings`: Number of servings.
+- `recipe_img`: URL of the recipe image.
 
-### Making a Progressive Web App
+### Reviews Table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `review_id`: Unique identifier for the review.
+- `recipe_id`: Identifier of the recipe being reviewed.
+- `rating`: Rating given to the recipe (1-5).
+- `review_text`: Text of the review.
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### `npm run build` fails to minify
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was developed as part of a Database Management System (DBMS) course. Special thanks to the course instructors and teaching assistants for their guidance and support.
+```
+
+Feel free to customize the 
+
+README.md
+
+ file further based on your specific project details and requirements.
