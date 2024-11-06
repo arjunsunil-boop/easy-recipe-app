@@ -1,0 +1,68 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#login-card {
+    width: 100%;
+    max-width: 400px;
+    max-height: 350px; /* Set a maximum height for the card */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+#login-card .card-body {
+    padding: 1.5rem; /* Reduce padding */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#login-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem; /* Reduce margin */
+}
+
+#login-card .card-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Reduce margin */
+}
+
+#login-card .form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+#login-card .form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem; /* Reduce margin */
+}
+
+#login-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+#login-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+#login-card a {
+    display: block;
+    margin-top: 0.75rem; /* Reduce margin */
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#login-card a:hover {
+    text-decoration: underline;
+}

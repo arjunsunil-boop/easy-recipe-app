@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './ViewRecipes.css';
 
 const ViewRecipes = () => {
 
@@ -38,7 +40,7 @@ const ViewRecipes = () => {
 
 
     <div>
-      <Navbar/>
+      <Navbar />
       <br />
       <br />
       <br />
@@ -59,7 +61,7 @@ const ViewRecipes = () => {
                   (i, index) => {
                     return (
 
-                      <div className="col col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                      <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
 
                         <div class="card" id='card-hover' >
                           <img src={i.recipe_img} class="card-img-top" alt="..." />
@@ -68,8 +70,10 @@ const ViewRecipes = () => {
                             <p class="card-text">{i.description}</p>
                           </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cooking time : {i.cooking_time}</li>
-                            <li class="list-group-item">Rating : {i.rating}</li>
+                            <li class="list-group-item">Cooking time : {i.cooking_time}min</li>
+                            <li className="list-group-item">
+                              Rating: {i.rating}/5 <i className="fas fa-star golden-star"></i>
+                            </li>
 
                           </ul>
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
+import './ViewRecipeSingle.css'; // Import the CSS file
 
 const ViewRecipeSingle = () => {
     const { id } = useParams();
@@ -60,56 +61,49 @@ const ViewRecipeSingle = () => {
     return (
         <div>
             <Navbar />
-            <br /><br /><br />
-            <div className="container">
-                <div className="row g-3">
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col-12 col-md-6 mb-4">
+                        <img src={recipe.recipe_img} alt={recipe.name} className="recipe-image" />
+                    </div>
+                    <div className="col-12 col-md-6 mb-4">
+                        <div className="recipe-details">
+                            <h2 className="recipe-title">{recipe.name}</h2>
+                            <p className="cooking-time">Cooking Time: {recipe.cooking_time} minutes</p>
+                            <p className="description">{recipe.description}</p>
+                            <div className="ingredients">
+                                <h3>Ingredients</h3>
+                                <ul>
+                                    {recipe.ingredients.map((ingredient, index) => (
+                                        <li key={index}>
+                                            {ingredient.name}: {ingredient.quantity} {ingredient.unit}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="instructions">
+                                <h3>Instructions</h3>
+                                {recipe.instructions.map((instruction, index) => (
+                                    <p key={index}>Step {instruction.step_number}: {instruction.description}</p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row" id="review-section">
                     <div className="col-12">
-                        <div className="row g-4">
-                            <div className="col-6">
-                                <img src={recipe.recipe_img} alt={recipe.name} className="recipe-image" />
+                        <h3>Add a Review</h3>
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-3">
+                                <label htmlFor="rating" className="form-label">Rating</label>
+                                <input type="number" className="form-control" id="rating" name="Rating" value={reviews.Rating} onChange={handleChange} min="1" max="5" required />
                             </div>
-                            <div className="col-6">
-                                <div className="col-12">
-                                    <div className="recipe-details">
-                                        <h2 className="recipe-title">{recipe.name}</h2>
-                                        <p className="cooking-time">Cooking Time: {recipe.cooking_time} minutes</p>
-                                        <p className="description">{recipe.description}</p>
-                                        <div className="ingredients">
-                                            <h3>Ingredients</h3>
-                                            <ul>
-                                                {recipe.ingredients.map((ingredient, index) => (
-                                                    <li key={index}>
-                                                        {ingredient.name}: {ingredient.quantity} {ingredient.unit}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        <div className="instructions">
-                                            <h3>Instructions</h3>
-                                            {recipe.instructions.map((instruction, index) => (
-                                                <p key={index}>Step {instruction.step_number}: {instruction.description}</p>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="mb-3">
+                                <label htmlFor="review_text" className="form-label">Review</label>
+                                <textarea className="form-control" id="review_text" name="Review_Text" value={reviews.Review_Text} onChange={handleChange} required></textarea>
                             </div>
-                        </div>
-                        <div className="row g-4">
-                            <div className="col-12">
-                                <h3>Add a Review</h3>
-                                <form onSubmit={handleSubmit}>
-                                    <div className="mb-3">
-                                        <label htmlFor="rating" className="form-label">Rating</label>
-                                        <input type="number" className="form-control" id="rating" name="Rating" value={reviews.Rating} onChange={handleChange} min="1" max="5" required />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="review_text" className="form-label">Review</label>
-                                        <textarea className="form-control" id="review_text" name="Review_Text" value={reviews.Review_Text} onChange={handleChange} required></textarea>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary">Submit Review</button>
-                                </form>
-                            </div>
-                        </div>
+                            <button type="submit" className="btn btn-primary">Submit Review</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,47 @@
+.container {
+    margin-top: 2rem;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    height: 500px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h5 {
+    margin-bottom: 0.5rem;
+}
+
+.card-body p {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.list-group-item {
+    flex: 0;
+}
+
+.card-body .card-link {
+    margin-top: auto;
+}
+
+.golden-star {
+    color: gold;
+}
