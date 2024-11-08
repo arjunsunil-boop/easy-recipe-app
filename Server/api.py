@@ -8,9 +8,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_HOST'] = 'recipedb.crqcsk602ik0.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'admin'
+app.config['MYSQL_PASSWORD'] = 'abcd123arjun'
 app.config['MYSQL_DB'] = 'esyrecp'
 mysql = MySQL(app)
 
