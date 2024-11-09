@@ -21,7 +21,7 @@ def add_recipe():
     description = _json.get('description')
     servings = _json.get('servings')
     cooking_time = _json.get('cooking_time')
-    recipe_img = _json.get('recipe_img')  # Assuming recipe_img is provided in the JSON payload
+    recipe_img = _json.get('recipe_img') 
     instructions = _json.get('instructions')  # Assuming instructions is a list of dictionaries with 'step_number' and 'description'
     ingredients = _json.get('ingredients')  # Assuming ingredients is a list of dictionaries with 'name', 'quantity', and 'unit'
     
@@ -251,9 +251,6 @@ def add_review():
     except Exception as e:
         cursor.close()
         return jsonify({"error": str(e)}), 500
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
