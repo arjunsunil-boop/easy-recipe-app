@@ -19,7 +19,7 @@ const Searchrecipe = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(search);
-        axios.post("http://127.0.0.1:5000//search_recipe", search).then(
+        axios.post("https://easy-recipe-app-cpjv.onrender.com/search_recipe", search).then(
             (response) => {
                 console.log(response.data)
                 setRecipes(response.data)

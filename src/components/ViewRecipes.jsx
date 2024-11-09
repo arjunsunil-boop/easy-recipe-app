@@ -12,7 +12,7 @@ const ViewRecipes = () => {
   )
 
   const fetchRecipes = () => {
-    axios.get("http://127.0.0.1:5000/recipes").then(
+    axios.get("https://easy-recipe-app-cpjv.onrender.com/recipes").then(
 
       (response) => {
         setRecipes(

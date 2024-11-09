@@ -31,7 +31,7 @@ const UserLogin = () => {
             return;
         }
 
-        axios.post("http://127.0.0.1:5000/login", login).then(
+        axios.post("https://easy-recipe-app-cpjv.onrender.com/login", login).then(
             (response) => {
                 console.log(response.status);
                 if (response.status === 200) {

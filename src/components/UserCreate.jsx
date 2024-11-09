@@ -31,7 +31,7 @@ const UserCreate = () => {
             return;
         }
 
-        axios.post("http://127.0.0.1:5000/create_user", login).then(
+        axios.post("https://easy-recipe-app-cpjv.onrender.com/create_user", login).then(
             (response) => {
                 console.log(response.status);
                 if (response.status === 200) {

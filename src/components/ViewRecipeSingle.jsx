@@ -20,7 +20,7 @@ const ViewRecipeSingle = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://127.0.0.1:5000/add_review", reviews).then(
+        axios.post("https://easy-recipe-app-cpjv.onrender.com/add_review", reviews).then(
             (response) => {
                 console.log(response.status);
                 if (response.status === 200) {
@@ -39,7 +39,7 @@ const ViewRecipeSingle = () => {
     };
 
     const fetchRecipe = () => {
-        axios.get(`http://127.0.0.1:5000/recipe/${id}`).then(
+        axios.get(`https://easy-recipe-app-cpjv.onrender.com/recipe/${id}`).then(
             (response) => {
                 setRecipe(response.data);
             }

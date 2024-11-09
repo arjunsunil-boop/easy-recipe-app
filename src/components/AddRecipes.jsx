@@ -33,7 +33,7 @@ const AddRecipes = () => {
       })
     };
 
-    axios.post("http://127.0.0.1:5000/add_recipe", newRecipe, {
+    axios.post("https://easy-recipe-app-cpjv.onrender.com/add_recipe", newRecipe, {
       headers: {
         'Content-Type': 'application/json'
       }
