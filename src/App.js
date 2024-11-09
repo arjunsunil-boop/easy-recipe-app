@@ -3,7 +3,7 @@ import './App.css';
 import AddRecipes from './components/AddRecipes';
 import ViewRecipes from './components/ViewRecipes';
 import ViewRecipeSingle from './components/ViewRecipeSingle';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Searchrecipe from './components/Searchrecipe';
 import UserCreate from './components/UserCreate';
@@ -11,7 +11,7 @@ import UserCreate from './components/UserCreate';
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
 
           <Route path="/" element={<UserLogin/>} />
@@ -24,7 +24,7 @@ function App() {
 
         </Routes>
 
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
