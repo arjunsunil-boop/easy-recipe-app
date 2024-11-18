@@ -252,6 +252,32 @@ def add_review():
         cursor.close()
         return jsonify({"error": str(e)}), 500
 
+@app.route("/view_review/<int:recipe_id>",methods=["GET"])
+def view_review(recipe_id):
+    cursor=mysql.connection.cursor()
+    cursor.execute(
+        "select Recipe_ID,Rating,Review_Text from user_reviews where Recipe_ID=%s",(recipe_id,)
+    )
+    
+    reviews_row = cursor.fetchall()
+    reviews = []
+    
+    for i in reviews_row:
+        
+        review={
+            'review-recipe-id':i[0],
+            'review-rating' : i[1],
+            'review_text_2':i[2],
+            
+            
+            
+        }
+        reviews.append(review)
+    
+    cursor.close()
+    return jsonify(reviews)
+    
+
 if __name__ == "__main__":
     app.run(debug=True)
 
