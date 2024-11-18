@@ -22,7 +22,7 @@ const ViewRecipeSingle = () => {
 
     const fetchreviews = async () => {
 
-        axios.get(`http://127.0.0.1:5000/view_review/${id}`).then(
+        axios.get(`https://easy-recipe-app-cpjv.onrender.com/view_review/${id}`).then(
             (response) => {
                 setReviewfetch(response.data)
             }
